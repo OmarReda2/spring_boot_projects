@@ -1,0 +1,74 @@
+<div class="alert alert-primary m-3 p-3">
+
+    <div class="text-end">
+        <div class="dropdown dropup ">
+            <button type="button" class="btn border-0 " data-bs-toggle="dropdown"
+                aria-expanded="false">⚙️</button>
+            <ul class="dropdown-menu">
+                <li>
+                    <button (click)="toggleEdit()" class="dropdown-item">
+                        <span *ngIf="editDisabled===true">Edit User</span>
+                        <span *ngIf="editDisabled===false">Close Edit</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+    <form>
+        <div class="row g-3">
+            <div class="col-3">
+                <input type="text" class="form-control" [(ngModel)]="user!.firstName" name="firstName" disabled="{{editDisabled}}">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" [(ngModel)]="user!.lastName" name="lastName" disabled="{{editDisabled}}">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" [(ngModel)]="user!.country" name="country" disabled="{{editDisabled}}">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" [(ngModel)]="user!.city" name="city" disabled="{{editDisabled}}">
+            </div>
+
+            <div class="col-3">
+                <input type="text" class="form-control" [(ngModel)]="user!.age" name="age" disabled="{{editDisabled}}">
+            </div>
+
+            <div class="col-12 w-100">
+                <textarea class="form-control" rows="10" [(ngModel)]="user!.intro" name="intro" disabled="{{editDisabled}}"></textarea>
+            </div>
+        </div>
+
+
+        <div *ngIf="!editDisabled">
+            <button class="btn btn-primary mt-3 " (click)="updateUser()">Edit</button>
+        </div>
+
+    </form>
+
+
+
+
+
+    <hr>
+    <form (ngSubmit)="updateLinkData()">
+        <div class="row g-2">
+            <div *ngFor="let link of links" class="col-6">
+                <label for="{{link.url}}">{{link.name}}</label>
+                <input type="text" class="form-control" name="{{link.url}}" 
+                       [(ngModel)]="link.url" (ngModelChange)="addUpdatedLinks(link)" disabled="{{editDisabled}}">
+            </div>
+        </div>
+
+        <div *ngIf="!editDisabled">
+            <button class="btn btn-primary mt-3 " type="submit">Edit</button>
+        </div>
+    </form>
+</div>

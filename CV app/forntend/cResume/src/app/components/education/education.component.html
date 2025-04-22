@@ -1,0 +1,99 @@
+<div class="alert alert-success m-3 p-3">
+    <!-- course edit, delete and adding buttons -->
+    <div class="text-end">
+        <div class="dropdown dropup ">
+            <button type="button" class="btn border-0 " data-bs-toggle="dropdown" aria-expanded="false">⚙️</button>
+            <ul class="dropdown-menu">
+                <li>
+                    <button (click)="toggleEdit()" class="dropdown-item">
+                        <span *ngIf="editDisabled===true">Edit Education</span>
+                        <span *ngIf="editDisabled===false">Close Edit</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button (click)="toggleAdding()" class="dropdown-item">
+                        <span *ngIf="addingEnabled===true">Close adding Course</span>
+                        <span *ngIf="addingEnabled===false">Add Course</span>
+                    </button>
+                </li>
+
+                <li>
+                    <button (click)="toggleDelete()" class="dropdown-item">
+                        <span *ngIf="deletingEnabled===true">Close deleting Education</span>
+                        <span *ngIf="deletingEnabled===false">Delete Education</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <form (ngSubmit)="updateEductionData()">
+        <div>
+            <!-- add education -->
+            <div *ngIf="addingEnabled">
+                <form>
+                    <div class="row alert bg-success bg-opacity-25 border-4">
+                        <div class="col-2  alert bg-success bg-opacity-25 me-1">
+                            <label>from:</label>
+                            <input type="date" class="form-control" name="startDate"
+                                [(ngModel)]="addedEducation!.startDate">
+
+                            <label>to:</label>
+                            <input type="date" class="form-control" name="endDate" [(ngModel)]="addedEducation!.endDate">
+                        </div>
+
+                        <div class="col-9 alert bg-success bg-opacity-50 ">
+
+                            <label>name</label>
+                            <input type="text" class="form-control w-25" name="name" [(ngModel)]="addedEducation!.name">
+
+                            <label>description</label>
+                            <textarea rows="5" type="text" class="form-control" name="description"
+                                [(ngModel)]="addedEducation!.description"></textarea>
+                        </div>
+
+                        <div class="text-end" (click)="addEducation(addedEducation)">
+                            <button class="btn btn-success mt-3 " type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div *ngFor="let edu of educations">
+                <div class="row">
+                    <div class="col-1 alert bg-success bg-opacity-25 me-1">
+                        <div>
+                            {{edu.startDate}}:
+                        </div>
+                        <div>
+                            {{edu.endDate}}
+                        </div>
+                    </div>
+
+                    <div class="col-9 alert bg-success bg-opacity-50">
+                        <label>{{edu.name}}</label>
+                        <div class="fst-italic fs-6">{{edu.grade}}, {{edu.gpa}}</div>
+                        <textarea rows="5" type="text" class="form-control" name="{{edu.description}}"
+                            [(ngModel)]="edu.description" (ngModelChange)="addUpdatedEducations(edu)"
+                            *ngIf="edu.description?.length || !editDisabled" disabled="{{editDisabled}}">
+                        </textarea>
+                    </div>
+
+                    <div class=" col-1 text-end" *ngIf="deletingEnabled">
+                        <button (click)="deleteEducation(edu.id)" class="btn btn-success">Delete</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <button class="btn btn-success mt-3 " type="submit" *ngIf="!editDisabled">Edit</button>
+        </div>
+    </form>
+</div>

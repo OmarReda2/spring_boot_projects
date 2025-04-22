@@ -1,0 +1,108 @@
+<div class="alert alert-secondary  m-3 p-3">
+
+
+    <form (ngSubmit)="updateCourseData()">
+        <div>
+
+            <!-- course edit, delete and adding buttons -->
+            <div class="text-end">
+                <div class="dropdown dropup ">
+                    <button type="button" class="btn border-0 " data-bs-toggle="dropdown"
+                        aria-expanded="false">⚙️</button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <button (click)="toggleEdit()" class="dropdown-item">
+                                <span *ngIf="editDisabled===true">Edit Course</span>
+                                <span *ngIf="editDisabled===false">Close Edit</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button (click)="toggleAdding()" class="dropdown-item">
+                                <span *ngIf="addingEnabled===true">Close adding Course</span>
+                                <span *ngIf="addingEnabled===false">Add Course</span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button (click)="toggleDeleting()" class="dropdown-item">
+                                <span *ngIf="deletingEnabled===true">Close deleting Course</span>
+                                <span *ngIf="deletingEnabled===false">Delete Course</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <div>
+                <!-- add course -->
+                <div *ngIf="addingEnabled">
+                    <form>
+                        <div class="row alert alert-dark border-4">
+                            <div class="col-2  alert alert-dark">
+                                <label>from:</label> 
+                                <input type="date" class="form-control" name="startDate" [(ngModel)]="addedCourse!.startDate">
+                                
+                                <label>to:</label> 
+                                <input type="date" class="form-control" name="endDate" [(ngModel)]="addedCourse!.endDate">
+                            </div>
+                            
+                            <div class="col-10 alert alert-dark">
+                                
+                                <label>name</label>
+                                <input type="text" class="form-control w-25" name="name" [(ngModel)]="addedCourse!.name">
+                                
+                                <label>description</label>
+                                <textarea rows="5" type="text" class="form-control" name="description" [(ngModel)]="addedCourse!.description"></textarea>
+                            </div>
+
+                            <div class="text-end" (click)="addCourse(addedCourse)">
+                                <button class="btn btn-secondary mt-3 " type="submit">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                
+                
+                
+                <!-- <div *ngFor="let course of (courses | async) trackBy:trackByItem"> -->
+                <!-- get all courses -->
+                <div *ngFor="let course of courses">
+                    <div class="row">
+                        <div class="col-1 alert alert-dark">
+                            <div>
+                                {{course.startDate}}:
+                            </div>
+                            <div>
+                                {{course.endDate}}
+                            </div>
+                        </div>
+
+                        <div class="col-11 alert alert-dark">
+                            <div class="text-end" *ngIf="deletingEnabled">
+                                <button (click)="deleteCourse(id,course.id)" class="btn btn-secondary">Delete</button>
+                            </div>
+
+
+                            <label>{{course.name}}</label>
+                            <textarea rows="5" type="text" class="form-control" name="{{course.description}}"
+                                [(ngModel)]="course.description" (ngModelChange)="addUpdatedCourses(course)"
+                                [disabled]="editDisabled">
+                            </textarea>
+                            <!-- <span>{{course.description}}</span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="!editDisabled">
+            <button class="btn btn-secondary mt-3 " type="submit">Edit</button>
+        </div>
+    </form>
+</div>
