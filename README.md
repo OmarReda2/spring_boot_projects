@@ -1,6 +1,6 @@
 
 
-# E-Commerce Management System
+# 1- E-Commerce Management System
 
 The **E-Commerce Management System (ECMS)** is a modern, scalable platform designed to streamline product and category management in online stores. Built with **Java**, **Spring Boot**, and **MySQL**, it offers a robust backend API that serves both administrators and users through intuitive endpoints, ensuring efficient management and seamless integration.
 
@@ -115,15 +115,15 @@ GET    /api/categories/{id}            # Get category by ID
 
 ---
 
+  
+  
+
+  
+  
+  
 
 
-
-
-
-
-
-
-# Resume Builder Application
+# 2- Resume Builder Application
 
 The **Resume Builder Application** is a scalable platform designed to manage user profiles, education, courses, and links for building professional resumes. Built with **Java**, **Spring Boot**, and **MySQL**, it provides a robust backend API for seamless integration with frontend platforms, ensuring efficient data management and user interaction.
 
