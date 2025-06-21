@@ -85,25 +85,7 @@ The backend server will be available at:
 
 ---
 
-## API Endpoints
 
-### 📦 Product Endpoints
-
-```http
-GET    /api/products                     # Retrieve all products
-GET    /api/products/{id}               # Get product by ID
-GET    /api/products/search/findByNameContaining?name={name} # Search products by name
-GET    /api/products/paginate?id={id}&size={size}&page={page}  # Paginate product results
-```
-
-### 🗂️ Category Endpoints
-
-```http
-GET    /api/categories                  # Retrieve all categories
-GET    /api/categories/{id}            # Get category by ID
-```
-
----
 
 ## Technologies Used
 
@@ -206,31 +188,8 @@ mvn spring-boot:run
 The backend server will be available at:
 **[http://localhost:8080/](http://localhost:8080/)**
 
----
 
-## API Endpoints
 
-### 📚 Education Endpoints
-
-```http
-POST   /educations/addEducation?userId={userId}       # Add education for a user
-PUT    /educations/updateEducation?eduId={eduId}&userId={userId} # Update education
-DELETE /educations/deleteEducation?userId={userId}&eduId={eduId} # Delete education
-```
-
-### 📦 Course Endpoints
-
-```http
-POST   /courses/addCourse?userId={userId}             # Add course for a user
-PUT    /courses/updateCourse?courseId={courseId}&userId={userId} # Update course
-DELETE /courses/deleteCourse?userId={userId}&courseId={courseId} # Delete course
-```
-
-### 🔗 Link Endpoints
-
-```http
-PUT    /links/updateLinkByUserId?urlId={urlId}&userId={userId} # Update link for a user
-```
 
 ---
 
