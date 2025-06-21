@@ -9,20 +9,20 @@ The **E-Commerce Management System (ECMS)** is a modern, scalable platform desig
 ## Key Features
 
 ### 🧩 Common Features
-✨ RESTful API for integration with frontend platforms <br />
-✨ Centralized Exception Handling using `@ControllerAdvice` <br />
-✨ Consistent API responses with a custom response handler <br />
-✨ Pagination and search support
+  RESTful API for integration with frontend platforms <br />
+  Centralized Exception Handling using `@ControllerAdvice` <br />
+  Consistent API responses with a custom response handler <br />
+  Pagination and search support
 
 ### 🔐 Admin Features
-✨ Add, Edit, List, and Delete Products <br />
-✨ Add, Edit, List, and Delete Categories <br />
-✨ View paginated product/category lists
+   Add, Edit, List, and Delete Products <br />
+   Add, Edit, List, and Delete Categories <br />
+   View paginated product/category lists
 
 ### 👤 User Features
-✨ Browse products by category or search <br />
-✨ View product details <br />
-✨ Paginate product lists for improved performance
+   Browse products by category or search <br />
+   View product details <br />
+   Paginate product lists for improved performance
 
 
 
