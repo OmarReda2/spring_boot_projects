@@ -92,10 +92,8 @@ The backend server will be available at:
 ```http
 GET    /api/products                     # Retrieve all products
 GET    /api/products/{id}               # Get product by ID
-GET    /api/products/search/findByNameContaining?name={name}
-                                        # Search products by name
-GET    /api/products/paginate?id={id}&size={size}&page={page}
-                                        # Paginate product results
+GET    /api/products/search/findByNameContaining?name={name} # Search products by name
+GET    /api/products/paginate?id={id}&size={size}&page={page}  # Paginate product results
 ```
 
 ### 🗂️ Category Endpoints
