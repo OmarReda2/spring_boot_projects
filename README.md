@@ -1,5 +1,5 @@
 
-````markdown
+
 # E-Commerce Management System
 
 The **E-Commerce Management System (ECMS)** is a modern, scalable platform designed to streamline product and category management in online stores. Built with **Java**, **Spring Boot**, and **MySQL**, it offers a robust backend API that serves both administrators and users through intuitive endpoints, ensuring efficient management and seamless integration.
@@ -24,7 +24,7 @@ The **E-Commerce Management System (ECMS)** is a modern, scalable platform desig
 ✨ View product details <br />
 ✨ Paginate product lists for improved performance
 
----
+
 
 ## Project Structure
 
